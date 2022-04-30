@@ -9,7 +9,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["https://www4.hs-bremerhaven.de/fb2/sose2022.php*"],
+      "matches": ["*://*.hs-bremerhaven.de/fb2/sose*.php*", "*://*.hs-bremerhaven.de/fb2/ws*.php*"],
       "css": ["content_scripts/inject.css"],
       "js": ["content_scripts/inject.js"]
     }
