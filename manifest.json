@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "hsbhv-timetable",
+  "version": "1.0",
+  "description": "Personal customization for the timetable on hs-bremerhaven.de",
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www4.hs-bremerhaven.de/fb2/sose2022.php*"],
+      "css": ["content_scripts/inject.css"],
+      "js": ["content_scripts/inject.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "popup/timetable.png",
+    "default_title": "hsbhv timetable",
+    "default_popup": "popup/settings.html"
+  },
+  "background": {
+    "scripts": ["background_scripts/context_menu.js"]
+  }
+}
