@@ -13,7 +13,7 @@
 
     function saveOptionsToStorage() {
         browser.storage.local.set({
-            delimiter: delimiterInput.value,
+            delimiter: delimiterInput.value === "" ? ";" : delimiterInput.value,
             terms: getTermsArray()
         });
     }
@@ -23,7 +23,7 @@
             delimiter: "",
             terms: ""
         }).then(res => {
-            delimiterInput.value = res.delimiter;
+            delimiterInput.value = res.delimiter === "" ? ";" : res.delimiter;
             blocksToDelete.value = res.terms.join(res.delimiter);
         });
     }
