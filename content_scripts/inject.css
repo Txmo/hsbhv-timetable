@@ -23,3 +23,40 @@ td, th {
     opacity: 0.25;
     background-color: gray;
 }
+
+.tt-hidden {
+    display: none;
+}
+
+#tt-table {
+    font-size: 1rem;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tt-table .tt-td, #tt-table .tt-th {
+    border: 1px solid #ddd;
+    padding: 4px;
+}
+
+#tt-table .tt-th {
+    font-family: 'Value Sans', sans-serif;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #A5FFFF;
+    color: black;
+}
+
+.wrap {
+    max-width: 80rem;
+}
+
+.fs-font-size {
+    font-size: 0.8em;
+}
+
+.cell-item {
+    font-size: 0.9em;
+    line-height: 1.2em;
+}
