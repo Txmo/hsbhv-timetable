@@ -88,7 +88,7 @@ function init() {
 
             if (timeTable.matrix[rIndex][cIndex]
                 && timeTable.ths[cIndex].span > 1
-                && !ttHasNeighbours(timeTable, rIndex, cIndex)
+                && !neighbourCount(timeTable, rIndex, cIndex)
             ) {
                 col.colSpan = timeTable.ths[cIndex].span
                 for (let r = rIndex; r < rIndex + col.rowSpan; ++r) {
@@ -107,17 +107,18 @@ function init() {
     highlightBlocks();
 }
 
-function ttHasNeighbours(timeTable, row, col) {
+function neighbourCount(timeTable, row, col) {
     let cell = timeTable.matrix[row][col]
     let span = timeTable.ths[col].span
+    let count = 0;
     for (let r = 0; r < cell.rowSpan; ++r) {
         for (let c = 1; c < span; ++c) {
             if (timeTable.matrix[row + r][col + c] === false || timeTable.matrix[row + r][col + c].classList.contains('object-cell-border')) {
-                return true
+                ++count
             }
         }
     }
-    return false
+    return count
 }
 
 function highlightBlocks() {
