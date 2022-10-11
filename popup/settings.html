@@ -6,25 +6,40 @@
     <link rel="stylesheet" href="settings.css">
 </head>
 <body>
-   <div id="settings-container">
-       <div id="settings-header">
-           Settings
-       </div>
-       <div id="settings-body">
-           <label>
-               search terms:
-               <input type="text" id="input-blocks-to-remove" placeholder="blocks to remove...">
-           </label>
-           <br>
-           <label>
-               delimiter:
-               <input type="text" id="input-delimiter" value=";" placeholder="delimiter...">
-           </label>
-       </div>
-       <div id="settings-footer" class="settings-footer">
-           <a href="https://www.flaticon.com/free-icons/calendar" title="calendar icons">Calendar icons created by Freepik - Flaticon</a>
-       </div>
-   </div>
+<div id="settings-footer" class="tt-settings-footer">
+    <a href="https://www.flaticon.com/free-icons/calendar"
+       title="calendar icons">Calendar icons created by Freepik -
+        Flaticon</a>
+</div>
+<div id="settings-container" class="tt-settings-container">
+    <div id="settings-header">
+        <h1>hsbhv-timetable</h1>
+        <h3>settings</h3>
+    </div>
+    <hr>
+    <div id="settings-body" class="tt-settings-body">
+        <div>
+            <label for="input-delimiter">
+                delimiter:
+            </label>
+            <input type="text" id="input-delimiter" value=";"
+                   placeholder="delimiter...">
+        </div>
+        <div>
+            <label for="input-blocks-to-remove">
+                gray out blocks:
+            </label>
+            <input type="text" id="input-blocks-to-remove"
+                   placeholder="keywords listed with delimiter...">
+        </div>
+        <hr>
+        <div id="groupContainer" class="tt-color-settings">
+        </div>
+        <div>
+            <button id="addColorGroup" type="button">➕</button>
+        </div>
+    </div>
+</div>
 </body>
 <script src="settings.js"></script>
 </html>

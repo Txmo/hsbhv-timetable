@@ -57,13 +57,13 @@ class TTTimeTable {
         for (let r = 1; r < this.matrix.length; ++r) {
             let tr = document.createElement('tr')
             for (let c = 0; c < this.matrix.length; ++c) {
-                if(this.matrix[r][c]){
+                if (this.matrix[r][c]) {
                     let td = this.matrix[r][c].cloneNode(true)
                     tr.appendChild(td)
                     let isBlock = td.classList.contains('object-cell-border')
                     td.classList.remove(...td.classList)
                     td.classList.add('tt-td')
-                    if(isBlock){
+                    if (isBlock) {
                         td.classList.add('tt-block')
                     }
                 }
@@ -121,23 +121,17 @@ function neighbourCount(timeTable, row, col) {
     return count
 }
 
-function highlightBlocks() {
-    document.querySelectorAll('.tt-block').forEach(function (e) {
-        if (e.innerText.includes('Üb') || e.innerText.includes('Labor') || e.innerText.includes('Tutorium')) {
-            e.classList.add('prac');
-        } else if (e.innerText.includes('Repetitorium')) {
-            e.classList.add('rep');
-        } else if (e.innerText.includes('Gremienblock')) {
-            e.classList.add('gblock');
-        } else {
-            e.classList.add('lec');
-        }
-    });
-}
-
-function updateBlocks(listOfBlocksToRemove) {
-    resetBlocks();
-    removeBlocksByNameList(listOfBlocksToRemove);
+function highlightBlocks(groups) {
+    document.querySelectorAll('.tt-block')
+        .forEach(function (e) {
+            groups.forEach(group => {
+                group.keywords.forEach(keyword => {
+                    if (e.innerText.includes(keyword)) {
+                        e.style.backgroundColor = group.groupColor
+                    }
+                })
+            })
+        });
 }
 
 function resetBlocks() {
@@ -167,10 +161,15 @@ function handleStorageChanges(changes, area) {
 }
 
 function initOptions() {
+    resetBlocks()
+
     browser.storage.local.get({
-        terms: []
-    }).then(res => updateBlocks(res.terms))
-        .catch(console.warn)
+        terms: [],
+        groups: []
+    }).then(res => {
+        highlightBlocks(res.groups)
+        removeBlocksByNameList(res.terms)
+    }).catch(console.warn)
 }
 
 init();

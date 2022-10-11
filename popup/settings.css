@@ -1,4 +1,113 @@
-.settings-footer {
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Value Sans', sans-serif;
+    font-size: 0.85rem;
+}
+
+h1 {
+    margin: 0;
+    padding-bottom: 3px;
+    font-size: 1.25rem;
+}
+
+h3 {
+    margin: 0;
+    padding-bottom: 3px;
+    font-size: 1rem;
+}
+
+hr {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+button {
+    width: 100%;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 6px 4px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddffff;
+}
+
+.tt-settings-container {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 300px;
+    overflow-y: scroll;
+}
+
+.tt-settings-body {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.tt-color-settings {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.tt-color-block {
+    border-bottom: 2px solid black;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.tt-settings-footer {
     padding-top: 10px;
     font-size: 0.75rem;
+}
+
+.tt-keywords {
+    margin-top: 5px;
+}
+
+.tt-keyword-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.tt-keyword-container > input {
+    width: 85%;
+    margin-right: 5px;
+}
+
+.tt-keyword-container > button {
+    width: 15%;
+}
+
+.tt-input-keyword {
+    width: 100%;
+    padding: 6px 4px;
+}
+
+.tt-group-info {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.tt-group-info > input {
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 6px 4px;
+}
+
+.tt-group-info > div:first-child {
+    margin-bottom: 5px;
 }
