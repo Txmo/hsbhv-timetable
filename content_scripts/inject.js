@@ -141,7 +141,7 @@ function updateBlocks(listOfBlocksToRemove) {
 }
 
 function resetBlocks() {
-    document.querySelectorAll('.object-cell-border').forEach(e => e.classList.remove('gray-out'))
+    document.querySelectorAll('.tt-block').forEach(e => e.classList.remove('gray-out'))
 }
 
 function removeBlocksByNameList(listOfBlocksToRemove) {
@@ -149,7 +149,7 @@ function removeBlocksByNameList(listOfBlocksToRemove) {
         return;
     }
     //Well, this is needlessly complex tbh, but I wanted to use filter and map ^^
-    Array.from(document.querySelectorAll('.object-cell-border'))
+    Array.from(document.querySelectorAll('.tt-block'))
         .filter((block) => {
             return listOfBlocksToRemove
                 .filter(name => {
