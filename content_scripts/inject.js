@@ -135,7 +135,10 @@ function highlightBlocks(groups) {
 }
 
 function resetBlocks() {
-    document.querySelectorAll('.tt-block').forEach(e => e.classList.remove('gray-out'))
+    document.querySelectorAll('.tt-block').forEach(e => {
+        e.classList.remove('gray-out')
+        e.style.backgroundColor = '#bfbfbf'
+    })
 }
 
 function removeBlocksByNameList(listOfBlocksToRemove) {
