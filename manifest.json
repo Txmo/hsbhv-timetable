@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "hsbhv-timetable",
-  "version": "1.1",
+  "version": "2.0",
   "description": "Personal customization for the timetable on hs-bremerhaven.de",
   "permissions": [
     "contextMenus",
