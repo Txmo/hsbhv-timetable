@@ -78,7 +78,7 @@ class TTTimeTable {
 
 function init() {
     initOptions();
-    browser.storage.onChanged.addListener(handleStorageChanges);
+    chrome.storage.onChanged.addListener(handleStorageChanges);
 
     let timeTable = new TTTimeTable()
 
@@ -166,13 +166,10 @@ function handleStorageChanges(changes, area) {
 function initOptions() {
     resetBlocks()
 
-    browser.storage.local.get({
-        terms: [],
-        groups: []
-    }).then(res => {
-        highlightBlocks(res.groups)
-        removeBlocksByNameList(res.terms)
-    }).catch(console.warn)
+    chrome.storage.local.get(['terms', 'groups'], (res) => {
+        highlightBlocks(res?.groups ?? [])
+        removeBlocksByNameList(res?.terms ?? [])
+    })
 }
 
 init();

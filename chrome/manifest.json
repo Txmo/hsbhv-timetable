@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "hsbhv-timetable",
   "version": "2.1",
   "description": "Personal customization for the timetable on hs-bremerhaven.de",
@@ -14,12 +14,12 @@
       "js": ["content_scripts/inject.js"]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": "popup/timetable.png",
     "default_title": "hsbhv timetable",
     "default_popup": "popup/settings.html"
   },
   "background": {
-    "scripts": ["background_scripts/context_menu.js"]
+    "service_worker": "chrome_context_menu.js"
   }
 }

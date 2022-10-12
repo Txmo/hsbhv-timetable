@@ -1,4 +1,4 @@
-(function () {
+chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
         id: "add-selection",
         title: "Add selection to removed blocks",
@@ -14,4 +14,4 @@
             })
         }
     });
-})();
+});

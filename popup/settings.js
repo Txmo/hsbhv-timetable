@@ -124,7 +124,7 @@
     }
 
     function saveOptionsToStorage() {
-        browser.storage.local.set({
+        chrome.storage.local.set({
             delimiter: delimiterInput.value === "" ? ";" : delimiterInput.value,
             terms: getTermsArray(),
             groups: getGroupsArray()
@@ -132,17 +132,13 @@
     }
 
     function restoreOptionsFromStorage() {
-        browser.storage.local.get({
-            delimiter: "",
-            terms: "",
-            groups: []
-        }).then(res => {
-            delimiterInput.value = res.delimiter === "" ? ";" : res.delimiter;
-            blocksToDelete.value = res.terms.join(res.delimiter);
-            res.groups.forEach((group) => {
+        chrome.storage.local.get(['delimiter', 'terms', 'groups'], (res) => {
+            delimiterInput.value = (res?.delimiter ?? '') === "" ? ";" : res.delimiter;
+            blocksToDelete.value = (res?.terms ?? []).join(res.delimiter);
+            (res?.groups ?? []).forEach((group) => {
                 addGroup(group)
             })
-        });
+        })
     }
 
     function getTermsArray() {
