@@ -136,6 +136,9 @@ function neighbourCount(timeTable, row, col) {
 }
 
 function highlightBlocks(groups) {
+    if(!groups || !groups.length){
+        return
+    }
     document.querySelectorAll('.tt-block')
         .forEach(function (e) {
             groups.forEach(group => {
