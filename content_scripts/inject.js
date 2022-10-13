@@ -74,6 +74,19 @@ class TTTimeTable {
         return tbl
     }
 
+    addDynamicCss() {
+        let head = document.querySelector('head')
+        let colCount = 0
+        this.ths.forEach(th => {
+            colCount += th.span
+        })
+        let style = document.createElement('style')
+        style.id = 'tt-dyn-css'
+
+        let rule = "#tt-table .tt-th:not(:first-child) { width: calc(100% / " + colCount + "); }"
+        style.appendChild(document.createTextNode(rule))
+        head.appendChild(style)
+    }
 }
 
 function init() {
@@ -103,6 +116,7 @@ function init() {
 
     let oldTable = document.querySelector('.grid-border-args')
     oldTable.replaceWith(timeTable.buildTable())
+    timeTable.addDynamicCss()
 
     highlightBlocks();
 }

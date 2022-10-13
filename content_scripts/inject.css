@@ -48,7 +48,7 @@ td, th {
 }
 
 .wrap {
-    max-width: 80rem;
+    max-width: 80vw;
 }
 
 .fs-font-size {
